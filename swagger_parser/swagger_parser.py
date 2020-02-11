@@ -609,6 +609,12 @@ class SwaggerParser(object):
                 # Get responses
                 self.paths[path][http_method]['responses'] = action['responses']
 
+                # Get description
+                if 'description' in action.keys():
+                    self.paths[path][http_method]['description'] = action['description']
+                else:
+                    self.paths[path][http_method]['description'] = "UNDEFINED"
+
                 # Get mime types for this action
                 if 'consumes' in action.keys():
                     self.paths[path][http_method]['consumes'] = action['consumes']
